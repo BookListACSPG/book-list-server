@@ -1,0 +1,32 @@
+{
+  "name": "book-app-server",
+  "version": "1.0.0",
+  "description": "Developing book app on week 3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BookListACSPG/book-list-client.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "express",
+    "postgres",
+    "nodemon"
+  ],
+  "author": "Amy Cohen and Sam Porter Giffords",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BookListACSPG/book-list-client/issues"
+  },
+  "homepage": "https://github.com/BookListACSPG/book-list-client#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "fs": "0.0.1-security",
+    "pg": "^7.4.3"
+  }
+}
