@@ -20,3 +20,10 @@ app.get('*', (req, res) => res.status(403).send('This is not the route you\'re l
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 
+app.get('/api/v1/books', (req, res) => {
+  client.query('')
+    .then (result => {
+      response.send(result.rows)
+    })
+    .catch(app.errorView.errorCallback)
+  });
