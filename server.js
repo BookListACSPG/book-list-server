@@ -21,9 +21,18 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 
 app.get('/api/v1/books', (req, res) => {
-  client.query('')
+  client.query('SELECT book_id, title, author, image_url FROM books')
     .then (result => {
       response.send(result.rows)
     })
     .catch(app.errorView.errorCallback)
   });
+
+
+// export PORT=3000
+
+// Mac:
+// export DATABASE_URL=postgres://localhost:5432/books_app
+
+// Windows:
+// export DATABASE_URL=postgres://USER:PASSWORD@localhost:5432/task_app
