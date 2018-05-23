@@ -20,15 +20,22 @@ app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
 
 
 //API Endpoints
-// app.get('https://www.googleapis.com/books/v1/volumes?q=harry+potter+stone', (req, res) => {
   app.get('/api/v1/books', (req, res) => {
     client.query('SELECT book_id, title, author, image_url FROM books')
     .then (result => {
       res.send(result.rows)
-      console.log(result);
-      console.log(req);
+      // console.log(result);
+      // console.log(req);
     })
   });
+
+  // app.get(`/api/v1/books/:${book_id}`, (req, res) => {
+  //   client.query(`SELECT * FROM books WHERE book_id=${book_id}`)
+  //   .then (result => {
+  //     res.send(result.rows)
+  //     console.log(`This is a single book: ${result}`);
+  //   })
+  // });
   
   
 app.get('*', (req, res) => res.status(403).send('This is not the route you\'re looking for.'));
