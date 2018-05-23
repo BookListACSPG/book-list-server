@@ -19,13 +19,14 @@ app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
 
 
 
-
+//API Endpoints
 // app.get('https://www.googleapis.com/books/v1/volumes?q=harry+potter+stone', (req, res) => {
   app.get('/api/v1/books', (req, res) => {
     client.query('SELECT book_id, title, author, image_url FROM books')
     .then (result => {
       res.send(result.rows)
       console.log(result);
+      console.log(req);
     })
   });
   
