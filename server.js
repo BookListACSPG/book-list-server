@@ -37,6 +37,17 @@ app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
 //     })
 //   });
   
+  app.post('/api/v1/books', (req, res) => {
+    // let {title, author, isbn, image_url, description} = req.body;
+    // let title = req.body.title;
+    // let author = req.body.author;
+    let SQL = `INSERT INTO books(title, author, isbn, image_url, description)
+    VALUES($1, $2, $3, $4, $5)`;
+    let values = [title, author, isbn, image_url, description];
+    client.query(SQL, values)
+    .then(res.sendStatus(201))
+    .catch(console.error)
+  });
   
 app.get('*', (req, res) => res.status(403).send('This is not the route you\'re looking for.'));
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
