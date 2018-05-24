@@ -14,6 +14,8 @@ client.connect();
 client.on('error', err => console.error(err));
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
 app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
 
@@ -41,7 +43,9 @@ app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
   });
   
   app.post('/api/v1/books', (req, res) => {
-    // let {title, author, isbn, image_url, description} = req.body;
+    console.log(req.body);
+    let {title, author, isbn, image_url, description} = req.body;
+
     // let title = req.body.title;
     // let author = req.body.author;
     let SQL = `INSERT INTO books(title, author, isbn, image_url, description)
