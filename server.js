@@ -21,6 +21,8 @@ app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
 
 //API Endpoints
   app.get('/api/v1/books', (req, res) => {
+   
+    
     client.query('SELECT book_id, title, author, image_url FROM books')
     .then (result => {
       res.send(result.rows)
@@ -29,13 +31,14 @@ app.get('/', (req, res) => res.send('Testing - 1, 2, 3'));
     })
   });
 
-//   app.get('/api/v1/books/:book_id', (req, res) => {
-//     client.query(`SELECT * FROM books WHERE book_id=${req.params.book_id}`)
-//     .then (result => {
-//       res.send(result.rows)
-//       console.log(`This is a single book: ${result}`);
-//     })
-//   });
+  app.get('/api/v1/books/:book_id', (req, res) => {
+    console.log('in route');
+    client.query(`SELECT * FROM books WHERE book_id=${req.params.book_id}`)
+    .then (result => {
+      res.send(result.rows)
+      console.log(`This is a single book: ${result}`);
+    })
+  });
   
   app.post('/api/v1/books', (req, res) => {
     // let {title, author, isbn, image_url, description} = req.body;
